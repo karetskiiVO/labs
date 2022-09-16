@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <assert.h>
 #include "input.h"
 
-int preparation(float* resistance)
+int preparation (float* resistance)
 {
     assert(resistance != NULL);
 
