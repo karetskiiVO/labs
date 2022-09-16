@@ -1,0 +1,1 @@
+int preparation(float* resistance);
