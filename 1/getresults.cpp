@@ -13,7 +13,7 @@ float results(int K, float *resistance){
         deviation += pow(resistance_final - resistance[i] , 2) ;
     }
     deviation = sqrt(deviation) / K;
-    printf("%f ± %f", resistance_final,deviation);
+    printf("%lf ± %lf", resistance_final, deviation);
     printf("\n");
     return (float)resistance_final;
 }
