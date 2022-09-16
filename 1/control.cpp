@@ -1,8 +1,9 @@
+#include <math.h>
 #include "control.h"
 
 int check (int K, float *resistance, float resistance_final)
 {
-    double epsilon = 1e-1;
+    double epsilon = 1e-4;
     double av_devation = 0;
 
     for (int i = 0; i < K; i++)
