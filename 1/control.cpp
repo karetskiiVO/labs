@@ -12,6 +12,7 @@ int check (int K, float *resistance, float resistance_final)
     }
 
     av_devation /= K;
+    printf("Average deviation = %f\n", av_devation);
 
     if (fabs (av_devation) < epsilon)
     {

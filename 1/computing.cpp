@@ -23,5 +23,5 @@ int data_select(int M, float *resistance)
 		}
 	}
 
-	return current_element + 1;
+	return current_element;
 }
