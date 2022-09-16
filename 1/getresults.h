@@ -3,4 +3,4 @@
 
 float results(int K, float resistance[]);
 
-#endif 
+#endif //getresults.h

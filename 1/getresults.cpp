@@ -14,5 +14,5 @@ float results(int K, float *resistance){
     }
     deviation = sqrt(deviation) / K;
     printf("%f ± %f", resistance_final,deviation);
-    return ;
+    return resistance_final;
 }
