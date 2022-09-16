@@ -8,7 +8,7 @@ CFLAGS  = -g -Wall
 SOURCES = main.cpp  computing.cpp control.cpp getresults.cpp input.cpp
 
 #sources of output
-EXECUTABLE = corrector
+EXECUTABLE = labcalc
 
 all:
 	$(CC) $(SOURCES) $(CFLAGS) -MD -o $(EXECUTABLE) -lm
