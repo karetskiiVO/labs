@@ -3,4 +3,4 @@
 
 int data_select(int M, float *resistance);
 
-#endif
+#endif //computing.h
