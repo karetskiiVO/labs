@@ -3,8 +3,8 @@
 #include <math.h>
 
 float results(int K, float *resistance){
-    float resistance_final = 0 ;
-    float deviation = 0;
+    double resistance_final = 0 ;
+    double deviation = 0;
     for (int i = 0; i < K ;i++){
         resistance_final += resistance[i];
     }
@@ -15,5 +15,5 @@ float results(int K, float *resistance){
     deviation = sqrt(deviation) / K;
     printf("%f ± %f", resistance_final,deviation);
     printf("\n");
-    return resistance_final;
+    return (float)resistance_final;
 }
