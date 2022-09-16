@@ -23,5 +23,10 @@ int data_select(int M, float *resistance)
 		}
 	}
 
+	for (int i = current_element; i < M; i++)
+	{
+		*(resistance + i) = 0;
+	}
+
 	return current_element;
 }
