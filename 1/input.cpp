@@ -13,8 +13,7 @@ int preparation (float* resistance)
     float current = 0;
     while (scanf("%f%*c%f", &voltage, &current) && number_elems < MAX_SIZE)
     {
-        voltage *= 1000;
-        *resistance = voltage / current;
+        *resistance = 1000 * voltage / current;
         resistance++;
 
         number_elems++;

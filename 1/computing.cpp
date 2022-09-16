@@ -16,7 +16,7 @@ int data_select(int M, float *resistance)
 
 	for (int i = 0; i < M; i++) 
 	{
-		if (fabs(*(resistance + i) - resistance_average) / resistance_average <= EPS)
+		if (fabs(*(resistance + i) - resistance_average) <= EPS * resistance_average)
 		{
 			*(resistance + current_element) = *(resistance + i);
 			++current_element;
