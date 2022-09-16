@@ -1,7 +1,9 @@
 #ifndef CONTROL
 #define CONTROL
+#include
 
-int check (int k, float *resistance, float resistance_final);
+int check (int K, float *resistance, float resistance_final);
+
 
 #endif //control.h
 
