@@ -9,12 +9,11 @@ int preparation (float* resistance)
 
     int number_elems = 0;
 
-    float voltage = NAN;
-    float current = NAN;
-    while (scanf("%f%*c%f", &voltage, &current) && number_elems < MAX_SIZE && resistance != NULL)
+    float voltage = 0;
+    float current = 0;
+    while (scanf("%f%*c%f", &voltage, &current) && number_elems < MAX_SIZE)
     {
         voltage *= 1000;
-
         *resistance = voltage / current;
         resistance++;
 
