@@ -1,0 +1,1 @@
+float results(int K, float resistance[]);
