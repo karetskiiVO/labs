@@ -21,16 +21,12 @@ int main () {
     add_noise(radiactivity, num_data);
 
     double decay_time = nonlinear_equation (radiactivity, time, num_data, precision);
-<<<<<<< HEAD
-    double decay_rate = linear_equation(radiactivity,time,num_data); 
-    
-=======
+
     double decay_rate = linear_equation(radiactivity,time,num_data);
 
     double time_differences = precision_analysis (radiactivity, time, num_data);
 
     printf("decay_time: %lg\ndecay_rate: %lg\ntime_differences: %lg\n", decay_time, decay_rate, time_differences);
 
->>>>>>> ec9b6ab3ee000040ea0d9cc24aff57a56e991595
     return 0;
 }

@@ -7,7 +7,10 @@
 #include <time.h>
 
 int experiment (double* radioactivity, double* time, double start_time, double end_time, double step) {
-    double const decay_time = 3.5;
+    double decay_time;
+    
+    printf("input decay time\t\t");
+    scanf("%lg", &decay_time);
 
     double t = start_time;
     int cnt;
