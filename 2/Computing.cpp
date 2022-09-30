@@ -51,7 +51,7 @@ double nonlinear_equation(double *radioactivity,double *time , int N, double pre
 }
 double model(double *radioactivity , double *time , int N, double point)
 {
-    double a = 0, medium_rad = 0 , medium_time = 0 , medium_time_rad = 0 , medium_time_squre = 0;
+    double medium_rad = 0 , medium_time = 0 , medium_time_rad = 0 , medium_time_squre = 0;
     for (int i = 0; i < N; i++)
     {
         medium_rad += radioactivity[i];
