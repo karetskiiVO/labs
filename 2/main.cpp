@@ -23,7 +23,13 @@ int main () {
     double decay_time = nonlinear_equation (radiactivity, time, num_data, precision);
     double decay_rate = linear_equation(radiactivity,time,num_data); 
 
+<<<<<<< HEAD
     double time_differences = precision_analysis (radiactivity, time, 100);
+=======
+    double time_differences = precision_analysis (radiactivity, time, num_data);
+
+
+>>>>>>> a60d4c59da4a27a54960c8bf3f535f53c9b1aff8
 
 
     return 0;
