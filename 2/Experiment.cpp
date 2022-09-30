@@ -9,8 +9,6 @@
 int experiment (double* radioactivity, double* time, double start_time, double end_time, double step) {
     double decay_time;
 
-
-
     printf("input decay time\t\t");
     scanf("%lg", &decay_time);
 
