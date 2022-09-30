@@ -20,6 +20,8 @@ int main () {
     int num_data = experiment(radiactivity, time, starttime, endtime, step);
     add_noise(radiactivity, num_data);
 
+    double time_differences = precision_analysis (radioactivity, time, 100);
+
 
     return 0;
 }
