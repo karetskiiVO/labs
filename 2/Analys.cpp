@@ -32,7 +32,7 @@ double precision_analysis (double *radioactivity, double *time, int N)
 {
 
     double time_differences = 0;
-    for (int M = 10; M < N; N++)
+    for (int M = 10; M < N; M++)
     {
         double decay_rate = 0;
         double nom = 0;
