@@ -2,34 +2,34 @@
 #include <stdio.h>
 #include <math.h>
 
-static double func_nonlin(double *radioctivity, double *time, double decay_rate, int N)
+static double func_nonlin(double *radioactivity, double *time, double decay_rate, int N)
 {
     double res = 0;
     for(int i = 0;i < N;i++)
     {
-        res += (time[i] * exp((-1) * time[i] / decay_rate) * (radioctivity[i] - exp((-1) * time[i] / decay_rate)));
+        res += (time[i] * exp((-1) * time[i] / decay_rate) * (radioactivity[i] - exp((-1) * time[i] / decay_rate)));
     }
     return res;
 }
 
-static double func_lin(double *radioctivity, double *time, double decay_rate , int N)
+static double func_lin(double *radioactivity, double *time, double decay_rate , int N)
 {
     double res = 0;
     for (int i = 0; i < N;i++)
     {
-        res += (time[i] * (radioctivity[i] - (1 - time[i] / decay_rate)));
+        res += (time[i] * (radioactivity[i] - (1 - time[i] / decay_rate)));
     }
     return res;
 }
 
-double nonlinear_equation(double *radioctivity,double *time , int N, double precision)
+double nonlinear_equation(double *radioactivity,double *time , int N, double precision)
 {
     double interval1 = 0 , interval2 = 0;
     scanf("%lf %lf" , &interval1 , interval2);
 
-    double f1=func_nonlin(radioctivity , time , interval1 , N);
+    double f1=func_nonlin(radioactivity , time , interval1 , N);
     double middle = (interval1 + interval2) / 2.0;
-    double f2=func_nonlin(radioctivity , time , middle , N);
+    double f2=func_nonlin(radioactivity , time , middle , N);
     if (f1 * f2 <= 0)
     {
         interval2 = middle;
@@ -42,21 +42,21 @@ double nonlinear_equation(double *radioctivity,double *time , int N, double prec
     while (fabs(interval2 - interval1) > precision)
     {
     middle = (interval1 + interval2) / 2.0;
-    f1=func_nonlin(radioctivity , time , middle , N);
+    f1=func_nonlin(radioactivity , time , middle , N);
     if (fabs(f1) <= 0.001)
     {
             return middle;
     }
     }
 }
-double model(double *radioctivity , double *time , int N, double point)
+double model(double *radioactivity , double *time , int N, double point)
 {
     double a = 0, medium_rad = 0 , medium_time = 0 , medium_time_rad = 0 , medium_time_squre = 0;
     for (int i = 0; i < N; i++)
     {
-        medium_rad += radioctivity[i];
+        medium_rad += radioactivity[i];
         medium_time += time[i];
-        medium_time_rad += (time[i] * radioctivity[i]);
+        medium_time_rad += (time[i] * radioactivity[i]);
         medium_time_squre += (time[i] * time[i]);
     }
     medium_rad = medium_rad / N;
@@ -70,7 +70,7 @@ double model(double *radioctivity , double *time , int N, double point)
 
 }
 
-double linear_equation(double *radioctivity , double *time , int N)
+double linear_equation(double *radioactivity , double *time , int N)
 {
     double decay_rate = 0; 
     
@@ -83,7 +83,7 @@ double linear_equation(double *radioctivity , double *time , int N)
     double sum_rad = 0;
     for(int i = 0; i < N;i++)
     {
-        sum_rad += (time[i] * (1 - radioctivity[i]));
+        sum_rad += (time[i] * (1 - radioactivity[i]));
     }
 
     decay_rate = sum_time / sum_rad;
