@@ -25,7 +25,7 @@ static double func_lin(double *radioactivity, double *time, double decay_rate , 
 double nonlinear_equation(double *radioactivity,double *time , int N, double precision)
 {
     double interval1 = 0 , interval2 = 0;
-    scanf("%lf %lf" , &interval1 , interval2);
+    scanf("%lf %lf" , &interval1 , &interval2);
 
     double f1=func_nonlin(radioactivity , time , interval1 , N);
     double middle = (interval1 + interval2) / 2.0;
