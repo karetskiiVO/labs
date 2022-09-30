@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 
-static double func_nonlin(double *radioactivity, double *time, double decay_rate, int N)
+static double func_nonlin(double *radioactivity, double *time, double decay_time, int N)
 {
 
     double res = 0;
@@ -10,9 +10,10 @@ static double func_nonlin(double *radioactivity, double *time, double decay_rate
     for(int i = 0;i < N;i++)
         {
 
-        res += (time[i] * exp((-1) * time[i] / decay_rate) * (radioactivity[i] - exp((-1) * time[i] / decay_rate)));
+        res += ((time[i] * exp((-1) * time[i] / decay_time) ) * (radioactivity[i] - exp((-1) * time[i] / decay_time)));
 
         }
+        
     return res;
 
 }
@@ -21,7 +22,7 @@ static double func_lin(double *radioactivity, double *time, double decay_rate , 
 {
 
     double res = 0;
-    
+
     for (int i = 0; i < N;i++)
         {
             
@@ -38,34 +39,31 @@ double nonlinear_equation(double *radioactivity,double *time , int N, double pre
     double interval1 = 0 , interval2 = 0;
     scanf("%lf %lf" , &interval1 , &interval2);
 
-    double middle = (interval1 + interval2) / 2;
+    double middle = 0 , f1 = 0, f2 = 0;
 
-    double f1 = func_nonlin(radioactivity , time , interval1 , N);
-    double f2 = func_nonlin(radioactivity , time , middle , N);
-
-
-    while (fabs(interval2 - interval1) > precision)
+    while (fabs(interval2 - interval1)/2 > precision)
         {
 
         middle = (interval1 + interval2) / 2;
 
-        f1 = func_nonlin(radioactivity , time , middle , N);
-        f2 = func_nonlin(radioactivity , time, interval1 , N);
+        f1 = func_nonlin(radioactivity , time , interval1 , N);
+        f2 = func_nonlin(radioactivity , time, middle , N);
 
-        if(f1 * f2 < 0)
-            {
-
-            interval2 = middle;
-
-            }
-        else
+        if(f1 * f2 > 0)
             {
 
             interval1 = middle;
 
             }
+        else
+            {
+
+            interval2 = middle;
+
+            }
 
         }
+
     return middle;
 
 }
