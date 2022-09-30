@@ -1,12 +1,15 @@
 #include "Analys.h"
 
+#include <math.h>
+#include <stdio.h>
+
 double dev_exp(double *radioactivity, double *time, int M, double decay_time)
 {
     double sum_residuals1 = 0;
 
     for (int i = 0; i < M; i++)
     {
-        sum_residuals1 += pow (radioactivity[i] - pow (M_E, - (time[i] / decay_time)), 2);
+        sum_residuals1 += pow (radioactivity[i] - exp( - (time[i] / decay_time)), 2);
     }
 
     double deviation1 = sqrt (sum_residuals1) / M;
