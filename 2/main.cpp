@@ -17,7 +17,6 @@ int main () {
     datread(step);
     datread(precision);
 
-
     int num_data = experiment(radiactivity, time, starttime, endtime, step);
     add_noise(radiactivity, num_data);
 
