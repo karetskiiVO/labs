@@ -22,6 +22,6 @@ int main () {
 
     double decay_time = nonlinear_equation (radiactivity, time, num_data, precision);
     double decay_rate = linear_equation(radiactivity,time,num_data); 
-
+    
     return 0;
 }
