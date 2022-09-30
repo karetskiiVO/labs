@@ -43,9 +43,49 @@ double nonlinear_equation(double *radioctivity,double *time , int N, double prec
     {
     middle = (interval1 + interval2) / 2.0;
     f1=func_nonlin(radioctivity , time , middle , N);
-    if (fabs(f1) <= 0.0001)
+    if (fabs(f1) <= 0.001)
     {
             return middle;
     }
     }
+}
+double model(double *radioctivity , double *time , int N, double point)
+{
+    double a = 0, medium_rad = 0 , medium_time = 0 , medium_time_rad = 0 , medium_time_squre = 0;
+    for (int i = 0; i < N; i++)
+    {
+        medium_rad += radioctivity[i];
+        medium_time += time[i];
+        medium_time_rad += (time[i] * radioctivity[i]);
+        medium_time_squre += (time[i] * time[i]);
+    }
+    medium_rad = medium_rad / N;
+    medium_time = medium_time / N;
+
+    double a = 0;
+    a = (N * medium_time_rad - medium_rad * medium_time) / (medium_time_squre - medium_time * medium_time);
+    double b = 0;
+    b = (medium_rad - a * medium_time) / N;
+    return a * point + b;
+
+}
+
+double linear_equation(double *radioctivity , double *time , int N)
+{
+    double decay_rate = 0; 
+    
+    double sum_time = 0;
+    for (int i = 0; i < N; i++)
+    {
+        sum_time += (time[i] * time[i]);
+    }
+    
+    double sum_rad = 0;
+    for(int i = 0; i < N;i++)
+    {
+        sum_rad += (time[i] * (1 - radioctivity[i]));
+    }
+
+    decay_rate = sum_time / sum_rad;
+    return decay_rate;
 }
