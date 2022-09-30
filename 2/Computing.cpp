@@ -38,7 +38,10 @@ static double func_lin(double *radioactivity,
 
 }
 
-double nonlinear_equation(double *radioactivity,double *time , int N, double precision)
+double nonlinear_equation(double *radioactivity,
+                          double *time ,
+                          int N,
+                          double precision)
 {
     printf("input interval: ");
     double interval1 = 0,interval2 = 0;
