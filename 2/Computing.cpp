@@ -24,6 +24,7 @@ static double func_lin(double *radioactivity, double *time, double decay_rate , 
 
 double nonlinear_equation(double *radioactivity,double *time , int N, double precision)
 {
+    
     double interval1 = 0 , interval2 = 0;
     scanf("%lf %lf" , &interval1 , &interval2);
 
@@ -31,6 +32,7 @@ double nonlinear_equation(double *radioactivity,double *time , int N, double pre
     double middle = (interval1 + interval2) / 2;
     double f2 = func_nonlin(radioactivity , time , middle , N);
 
+    
     if (f1 * f2 <= 0)
         {
         interval2 = middle;
