@@ -1,5 +1,5 @@
-#include "slope_finder.h"
 #include "specialtypes.h"
+#include "slope_finder.h"
 
 void matrix_of_slopes(int N, position *ship, fig triangle, 
                       position port, float (*slopes)[4]) {
@@ -9,18 +9,18 @@ void matrix_of_slopes(int N, position *ship, fig triangle,
                         + port.longitude.second / 3600;
   double latitude_apex[3] = {0};
   double longitude_apex[3] = {0};
-  latitude_apex[0] = triangle.apex1.lat.degree + triangle.lat.minute / 60
-                                 + triangle.lat.second / 3600;
-  longitude_apex[0] = triangle.apex1.longitude.degree + triangle.longitude.minute / 60 
-                                  + triangle.longitude.second / 3600;
-  latitude_apex[1] = triangle.apex2.lat.degree + triangle.lat.minute / 60
-                                 + triangle.lat.second / 3600;
-  longitude_apex[1] = triangle.apex2.longitude.degree + triangle.longitude.minute / 60 
-                                  + triangle.longitude.second / 3600;
-  latitude_apex[2] = triangle.apex3.lat.degree + triangle.lat.minute / 60
-                                 + triangle.lat.second / 3600;
-  longitude_apex[2] = triangle.apex3.longitude.degree + triangle.longitude.minute / 60 
-                                  + triangle.longitude.second / 3600;
+  latitude_apex[0] = triangle.apex1.lat.degree + triangle.apex1.lat.minute / 60
+                                 + triangle.apex1.lat.second / 3600;
+  longitude_apex[0] = triangle.apex1.longitude.degree + triangle.apex1.longitude.minute / 60 
+                                  + triangle.apex1.longitude.second / 3600;
+  latitude_apex[1] = triangle.apex2.lat.degree + triangle.apex2.lat.minute / 60
+                                 + triangle.apex2.lat.second / 3600;
+  longitude_apex[1] = triangle.apex2.longitude.degree + triangle.apex2.longitude.minute / 60 
+                                  + triangle.apex2.longitude.second / 3600;
+  latitude_apex[2] = triangle.apex3.lat.degree + triangle.apex3.lat.minute / 60
+                                 + triangle.apex3.lat.second / 3600;
+  longitude_apex[2] = triangle.apex3.longitude.degree + triangle.apex3.longitude.minute / 60 
+                                  + triangle.apex3.longitude.second / 3600;
 
   for (int cur_ship = 0; cur_ship < N; ++cur_ship) {
     double latitude_ship = ship[cur_ship].lat.degree + ship[cur_ship].lat.minute / 60
