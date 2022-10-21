@@ -1,3 +1,4 @@
+#include "danger_identification.h"
 
 void danger_identification(int N,float (*slopes)[4],int *danger)
 {
