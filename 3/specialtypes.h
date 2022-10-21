@@ -3,7 +3,7 @@
 
 typedef struct {
   int degree;
-  int minutes;
+  int minute;
   int second;
 } coordinates;
 
