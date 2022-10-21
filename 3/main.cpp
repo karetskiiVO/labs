@@ -3,6 +3,8 @@
 #include "slope_finder.h"
 #include "danger_identification.h"
 
+#include <stdio.h>
+
 #define SHIPS_NUMBER 100
 
 int main () {
