@@ -125,3 +125,41 @@ struct fig input_triangle (void)
     return triangle;
 }
 
+struct position input_port (void)
+{
+    struct position port = {};
+    int lat_deg = 0;
+    int lat_min = 0;
+    int lat_sec = 0;
+    int lon_deg = 0;
+    int lon_min = 0;
+    int lon_sec = 0;
+
+    int exit_flag = 1;
+    while (exit_flag)
+    {
+        exit_flag = 0;
+        scanf("%d%d%d%d%d%d", &lat_deg, &lat_min, &lat_sec, &lon_deg, &lon_min, &lon_sec);
+        if (lat_deg < 0 || lat_min < 0 || lat_sec < 0 || lon_deg < 0 ||lon_min < 0 || lon_sec < 0)
+        {
+            printf("Error, wrong data, enter again:\n");
+            exit_flag = 1;
+            continue;
+        }
+        if (lat_deg > 90 || lat_min > 60 || lat_sec > 60 || lon_deg > 180 ||lon_min > 60 || lon_sec > 60)
+        {
+            printf("Error, wrong data, enter again:\n");
+            exit_flag = 1;
+            continue;
+        }
+
+        port.lat.degree = lat_deg;
+        port.lat.minute = lat_min;
+        port.lat.second = lat_sec;
+        port.longitude.degree = lon_deg;
+        port.longitude.minute = lon_min;
+        port.longitude.second = lon_sec;
+    }
+
+    return port;
+}
