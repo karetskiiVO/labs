@@ -3,12 +3,12 @@ void danger_identification(int N,float (*slopes)[4],int *danger)
 {
     for (int i = 0;i < N;i++)
     {
-        float nums[50] = {slopes[i][0],slopes[i][1],slopes[i][2]};
+        float nums[3] = {slopes[i][0],slopes[i][1],slopes[i][2]};
         bubbleSort(nums, 3);
-        float max1 = nums[2];
-        float max3 = nums[0];
+        float high_boundary = nums[2];
+        float low_boundary = nums[0];
 
-        if (max1 <= slopes[i][3] <= max3)
+        if (low_boundary <= slopes[i][3] <= high_boundary)
         {
             danger[i] = 1;
         }
