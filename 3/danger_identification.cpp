@@ -34,7 +34,7 @@ static float max(float *arr)
 {
     assert(arr != NULL);
 
-    float max = 0;
+    float max = -1000;
     for (int i = 0;i < 3;i++)
     {
         if(max < arr[i])
