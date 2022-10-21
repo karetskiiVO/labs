@@ -3,7 +3,7 @@ void danger_identification(int N,float (*slopes)[4],int *danger)
 {
     for (int i = 0;i < N;i++)
     {
-        float nums[5] = {slopes[i][0],slopes[i][1],slopes[i][2]};
+        float nums[50] = {slopes[i][0],slopes[i][1],slopes[i][2]};
         bubbleSort(nums, 3);
         float max1 = nums[2];
         float max3 = nums[0];
