@@ -7,6 +7,8 @@
 
 int main () {
     position ships[SHIPS_NUMBER] = {0};
-    int couner = 0;
-    input_ship()
+    int counter = 0;
+    scanf("%d", &counter);
+    input_ship(counter, ships);
+    
 }
