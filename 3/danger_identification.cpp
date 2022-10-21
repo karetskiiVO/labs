@@ -7,7 +7,7 @@ void danger_identification(int N,float (*slopes)[4],int *danger)
         float max1 = max(3,nums);
         float max3 = max(1,nums);
 
-        if (max1 <= slopes[i][3] && slopes[i][3] <= max3)
+        if (max1 <= slopes[i][3] <= max3)
         {
             danger[i] = 1;
         }
