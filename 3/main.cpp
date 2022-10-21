@@ -12,9 +12,10 @@ int main () {
     position ships[SHIPS_NUMBER];
     int counter = 0;
     scanf("%d", &counter);
+    position port = input_port();
     input_ship(counter, ships);
     fig triangle = input_triangle();
-    position port = input_port();
+    
 
     float slopes[SHIPS_NUMBER][4];
     matrix_of_slopes(counter, ships, triangle, port, slopes);
