@@ -1,4 +1,5 @@
 #include "danger_identification.h"
+#include <stdio.h>
 #include <assert.h>
 
 static float min(float *arr);
