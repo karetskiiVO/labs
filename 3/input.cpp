@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#include "specialtypes"
+#include "specialtypes.h"
 
 void input_ship (int N, struct position *ship)
 {

@@ -1,5 +1,7 @@
 #include "danger_identification.h"
 
+static void bubbleSort(float arr[], int n); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
 void danger_identification(int N,float (*slopes)[4],int *danger)
 {
     for (int i = 0;i < N;i++)
@@ -9,7 +11,7 @@ void danger_identification(int N,float (*slopes)[4],int *danger)
         float high_boundary = nums[2];
         float low_boundary = nums[0];
 
-        if (low_boundary <= slopes[i][3] <= high_boundary)
+        if ((low_boundary <= slopes[i][3]) && (slopes[i][3] <= high_boundary))
         {
             danger[i] = 1;
         }

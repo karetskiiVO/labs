@@ -8,11 +8,14 @@
 #define SHIPS_NUMBER 100
 
 int main () {
-    position ships[SHIPS_NUMBER] = {0};
+    position ships[SHIPS_NUMBER];
     int counter = 0;
     scanf("%d", &counter);
     input_ship(counter, ships);
+    fig rtiamgle = input_triangle();
+    position port = input_port();
 
+    float slopes[SHIPS_NUMBER]
 
 
     return 0;

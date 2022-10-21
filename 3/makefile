@@ -5,7 +5,7 @@ CC := gcc
 CFLAGS := -g -Wall -Wextra -fsanitize=address
 
 #sources of input
-SOURCES := main.c  danger_identification.c  slope_finder.c  input.c
+SOURCES := main.cpp  danger_identification.cpp  slope_finder.cpp  input.cpp
 
 #sources of output
 EXECUTABLE := corrector
