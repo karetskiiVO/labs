@@ -1,15 +1,23 @@
 #include "danger_identification.h"
+#include <assert.h>
 
-static void bubbleSort(float arr[], int n); //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+static float min(float *arr);
+
+static float max(float *arr);
+
 
 void danger_identification(int N,float (*slopes)[4],int *danger)
 {
+    assert(slopes != NULL);
+    assert(danger != NULL);
+
+    float low_boundary = 0, high_boundary = 0;
+
     for (int i = 0;i < N;i++)
     {
         float nums[3] = {slopes[i][0],slopes[i][1],slopes[i][2]};
-        bubbleSort(nums, 3);
-        float high_boundary = nums[2];
-        float low_boundary = nums[0];
+        low_boundary = min(nums);
+        high_boundary = max(nums);
 
         if ((low_boundary <= slopes[i][3]) && (slopes[i][3] <= high_boundary))
         {
@@ -22,21 +30,34 @@ void danger_identification(int N,float (*slopes)[4],int *danger)
     }
 }
 
- 
-static void bubbleSort(float arr[], int n)
+static float max(float *arr)
 {
-    for (int i = 0; i < n - 1; i++)
+    assert(arr != NULL);
+
+    float max = 0;
+    for (int i = 0;i < 3;i++)
     {
-        for (int j = 0; j < n - i - 1; j++)
+        if(max < arr[i])
         {
-            if (arr[j] > arr[j + 1])
-            {
-                float temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
+            max = arr[i];
         }
     }
+    return max;
+}
+
+static float min(float *arr)
+{
+    assert(arr != NULL);
+    
+    float min = 0;
+    for (int i = 0;i < 3;i++)
+    {
+        if(min > arr[i])
+        {
+            min = arr[i];
+        }
+    }
+    return min;
 }
 
 
