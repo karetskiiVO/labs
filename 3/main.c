@@ -10,5 +10,8 @@ int main () {
     int counter = 0;
     scanf("%d", &counter);
     input_ship(counter, ships);
-    
+
+
+
+    return 0;
 }
