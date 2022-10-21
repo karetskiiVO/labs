@@ -49,7 +49,7 @@ static float min(float *arr)
 {
     assert(arr != NULL);
     
-    float min = 0;
+    float min = 1000;
     for (int i = 0;i < 3;i++)
     {
         if(min > arr[i])
