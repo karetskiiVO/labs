@@ -34,20 +34,24 @@ void customer_base (int N, client *bank, currency *val, balance *total_balance)
         for (int j = 0; j < 5; j++)
         {
             if (code_buf == (val+j)->currency_code)
-            code_flag = 1;
+            {
+                code_flag = 1;
+                (total_balance->currency_start)[j] += amount->buf;
+            }
         }
         if (code_flag == 0)
         {
-            printf ("wrong code in customer base, try again\n");
+            printf ("Wrong code in customer base, try again\n");
             continue;
         }
         else
         {
-        (bank+i)->identification_number = id_num_buf;
-        (bank+i)->account = account_buf;
-        (bank+i)->amount = amount_buf;
-        (bank+i)->code = code_buf;
-        i++;
+            (bank+i)->identification_number = id_num_buf;
+            (bank+i)->account = account_buf;
+            (bank+i)->amount = amount_buf;
+            (bank+i)->code = code_buf;
+
+            i++;
         }
     }
 }
