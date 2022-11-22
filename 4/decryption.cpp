@@ -27,7 +27,7 @@ void decryption(int N,
     {
         for (int j = 0; j < 5; j++)
         {
-            printf("%d", (total_balance + i)->currency_cipher[j]);
+            printf("%d ", (total_balance + i)->currency_cipher[j]);
         }
         printf("\n");
     }
