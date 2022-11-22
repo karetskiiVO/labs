@@ -32,7 +32,7 @@ int main() {
     printf("Index - %d\tIdentification number - %d\tAccount - %d\tAmount - %d\tCode - %d\n",
            i, bank_ciphr[i].identification_number, bank_ciphr[i].account, bank_ciphr[i].amount, bank_ciphr[i].code);
   }
-  decryption(N, bank_ciphr, bank_new, ciphr, &total_balance);
+  decryption(N, bank_ciphr, bank_new, ciphr, &total_balance, val);
   if (!verification(N, bank, bank_new)) 
     return 1;
   if (!check(&total_balance))
