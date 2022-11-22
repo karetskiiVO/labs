@@ -1,5 +1,5 @@
-#include "decryption.h"
 #include "banktypes.h"
+#include "decryption.h"
 #include <stdio.h>
 
 void decryption(int N,
