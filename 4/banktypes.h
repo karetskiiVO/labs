@@ -13,13 +13,13 @@ typedef struct {
     char currency_name[10];
     char leter_code[4];
     int currency_code;
-}  currency;
+} currency;
 
 typedef struct {
- long long int identification_number;
- int account;
- int amount;
- int code;
+    long long int identification_number;
+    int account;
+    int amount;
+    int code;
 } client;
 
 typedef struct {
