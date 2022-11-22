@@ -5,8 +5,8 @@ CC := g++
 CFLAGS := -g -Wall -Wextra #-fsanitize=address
 
 #sources of input
-SOURCES_DEBUG := deb.cpp  security.cpp
-SOURCES 	  := deb.cpp  security.cpp
+SOURCES_DEBUG := deb.cpp security.cpp decryption.cpp enter.cpp verification.cpp 
+SOURCES 	  := deb.cpp security.cpp decryption.cpp enter.cpp verification.cpp 
 
 #sources of output
 EXECUTABLE := disp
