@@ -1,11 +1,11 @@
 #pragma once
 
 enum CURENCY {
-    CUR_USD,
-    CUR_RUB,
-    CUR_EUR,
-    CUR_GBP,
-    CUP_CNY
+    CUR_RUB = 1,
+    CUR_USD = 2,
+    CUR_EUR = 3,
+    CUR_GBP = 4,
+    CUP_CNY = 5
 };
 
 
@@ -28,6 +28,15 @@ typedef struct {
     int key_2;
     int key_3;
 } key;
+
+typedef struct {
+    int currency_start[5];
+    int currency_cipher[5];
+} balance;
+
+
+
+
 
 
 
