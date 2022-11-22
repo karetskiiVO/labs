@@ -36,7 +36,16 @@ int resheto (int n) {
     return answ;
 }
 
-int nod (int n, int n1);
+int gcd (int n1, int n2) {
+    if (n1 == 0) {
+        return n2;
+    }
+    return gcd(n2%n1, n1);
+}
 
-long long int combination (int n, int m);
+long long int combination (int n, int m) {
+    if (m == 0 || m == n) return 1;
+
+    return combination(n - 1, m - 1) + combination(n - 1, m);
+}
 

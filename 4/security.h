@@ -10,7 +10,7 @@ void code_encryption    (int N, client * bank, client * bank_ciphr, key *ciphr);
 
 int resheto (int n);
 
-int nod (int n, int n1);
+int gcd (int n, int m);
 
 long long int combination (int n, int m);
 
