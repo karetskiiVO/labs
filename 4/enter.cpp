@@ -36,7 +36,7 @@ void customer_base (int N, client *bank, currency *val, balance *total_balance)
             if (code_buf == (val+j)->currency_code)
             {
                 code_flag = 1;
-                (total_balance->currency_start)[j] += amount->buf;
+                (total_balance->currency_start)[j] += amount_buf;
             }
         }
         if (code_flag == 0)
