@@ -2,9 +2,10 @@
 #define DECRYPTION
 
 void decryption(int N, 
-                struct client* bank_ciphr, 
-                struct client* bank_new, 
-                struct key* shiphr, 
-                struct balans* total_balans);
+                client* bank_ciphr, 
+                client* bank_new, 
+                key* cipher, 
+                balance* total_balance,
+                currency* val);
 
 #endif // decryption.h
