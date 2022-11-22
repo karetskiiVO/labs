@@ -16,25 +16,13 @@ void decryption(int N,
         (bank_new + i)->amount = (bank_ciphr + i)->amount - (cipher + i)->key_2;
         (bank_new + i)->code = (bank_ciphr + i)->code - (cipher + i)->key_3;
 
-        if((bank_new + i)->code == (val + 0)->currency_code)
+        for (int j = 0; j < 5; ++j)
         {
-            total_balance->currency_cipher[0] += (bank_new + i)->amount;
-        }
-        else if((bank_new + i)->code == (val + 1)->currency_code)
-        {
-            total_balance->currency_cipher[1] += (bank_new + i)->amount;
-        }
-        else if((bank_new + i)->code == (val + 2)->currency_code)
-        {
-            total_balance->currency_cipher[2] += (bank_new + i)->amount;
-        }
-        else if((bank_new + i)->code == (val + 3)->currency_code)
-        {
-            total_balance->currency_cipher[3] += (bank_new + i)->amount;
-        }
-        else 
-        {
-            total_balance->currency_cipher[4] += (bank_new + i)->amount;
+            if ((bank_new + i)->code == (val + j)->currency_code)
+            {
+                total_balance->currency_cipher[j] += (bank_new + i)->amount;
+                break;
+            }
         }
     }
 
