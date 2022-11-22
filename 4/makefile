@@ -2,7 +2,7 @@
 CC := g++
  
 #flags:
-CFLAGS := -g -Wall -Wextra -fsanitize=address
+CFLAGS := -g -Wall -Wextra #-fsanitize=address
 
 #sources of input
 SOURCES_DEBUG := deb.cpp  security.cpp

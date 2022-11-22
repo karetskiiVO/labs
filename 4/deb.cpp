@@ -1,10 +1,19 @@
 #include "security.h"
 
 #include <stdio.h>
+#include <string.h>
 
 int main () {
-    int n, m;
-    scanf("%d%d", &n, &m);
-    printf("%d\n", combination(n, m));
+    long n;
+    scanf("%ld", &n);
+
+    char* ptr = NULL;
+    char str[1000] = "";
+    sprintf(str, "%ld", n);
+    
+
+    printf("%s\n", str);
+
+
     return 0;
 }
