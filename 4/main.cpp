@@ -6,6 +6,8 @@
 #include "verification.h"
 
 int main() {
+  int N = 0;
+  scanf("%d", &N);
   const int CLIENT_NUMBER = 10000;
   currency val[5];
   client bank[CLIENT_NUMBER];
@@ -15,11 +17,9 @@ int main() {
   balance total_balance;
   currency_reference(val);
   for (int i = 0; i < 5; ++i) {
-    printf("Currency name - %s\tLeter code - %s\tCurrency code - %s\n", 
+    printf("Currency name - %s\tLeter code - %s\tCurrency code - %d\n", 
            val[i].currency_name, val[i].leter_code, val[i].currency_code);
   }
-  int N = 0;
-  scanf("%d", &N);
   customer_base(N, bank, val, &total_balance);
   account_encryption(N, bank, bank_ciphr, ciphr);
   amount_encryption(N, bank, bank_ciphr, ciphr);
