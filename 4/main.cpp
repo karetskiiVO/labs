@@ -29,7 +29,7 @@ int main() {
            i, ciphr[i].key_1, ciphr[i].key_2, ciphr[i].key_3);
   }
   for (int i = 0; i < N; ++i) {
-    printf("Index - %d\tIdentification number - %d\tAccount - %d\tAmount - %d\tCode - %d\n",
+    printf("Index - %d\tIdentification number - %lld\tAccount - %d\tAmount - %d\tCode - %d\n",
            i, bank_ciphr[i].identification_number, bank_ciphr[i].account, bank_ciphr[i].amount, bank_ciphr[i].code);
   }
   decryption(N, bank_ciphr, bank_new, ciphr, &total_balance, val);

@@ -12,10 +12,10 @@ void account_encryption (int N, client* bank, client* bank_ciphr, key* ciphr) {
         char str[1000] = "";
         int a1, a2;
 
-        sprintf(str, "%d", bank[i].identification_number);
+        sprintf(str, "%lld", bank[i].identification_number);
 
-        size_t len = strlen(str);
-        for (int i = len - 1; i >= 1; i++) {
+        int len = strlen(str);
+        for (int i = len - 1; i >= 1; i--) {
             if (str[i] != '0' && str[i - 1] != '0') {
                 a1 = str[i] - '0' + str[i - 1] - '0';
                 break;
@@ -31,7 +31,7 @@ void account_encryption (int N, client* bank, client* bank_ciphr, key* ciphr) {
 
         ciphr[i].key_1 = a2 * resheto(a1); 
 
-        bank[i].account += ciphr[i].key_1;
+        bank_ciphr[i].amount = bank[i].amount + ciphr[i].key_1;
     }
 }
 
@@ -41,7 +41,7 @@ void amount_encryption  (int N, client* bank, client* bank_ciphr, key* ciphr) {
         char str[1000] = "";
         int a1, a2, a3;
 
-        sprintf(str, "%d", bank[i].identification_number);
+        sprintf(str, "%lld", bank[i].identification_number);
 
         ptr = strrchr(str, '0');
         while (ptr) {
@@ -58,19 +58,18 @@ void amount_encryption  (int N, client* bank, client* bank_ciphr, key* ciphr) {
         
         ciphr[i].key_2 = a1 * gcd(a2, a3);
 
-        bank[i].amount += ciphr[i].key_2;
+        bank_ciphr[i].amount = bank[i].amount + ciphr[i].key_2;
     }
 }
 
 void code_encryption    (int N, client* bank, client* bank_ciphr, key* ciphr) {
     for (int i = 0; i < N; i++) {
-        char* ptr = NULL;
         char str[1000] = "";
         int a1 = 0, a2 = 0, a3 = 0;
 
-        sprintf(str, "%d", bank[i].identification_number);
+        sprintf(str, "%lld", bank[i].identification_number);
 
-        size_t len = strlen(str);
+        int len = strlen(str);
 
         for (int i = 0; i < 3; i++) {
             a1 += str[len - 1 - i] - '0';
@@ -80,9 +79,9 @@ void code_encryption    (int N, client* bank, client* bank_ciphr, key* ciphr) {
             a1 = 27;
         } 
 
-        sprintf(str, "%d%c", bank[i].code, '\0');        
-        
-        a2 = str[0];
+        sprintf(str, "%d%c", bank[i].code, '\0');
+
+        a2 = str[0] - '0';
         if (a1 < a2) {
             a3 = a2;
             a2 = a1;
@@ -91,12 +90,12 @@ void code_encryption    (int N, client* bank, client* bank_ciphr, key* ciphr) {
 
         ciphr[i].key_3 = combination(a1, a2);
 
-        bank[i].amount += ciphr[i].key_3;   
+        bank_ciphr[i].amount = bank[i].amount + ciphr[i].key_3;   
     }
 }
 
 int resheto (int n) {
-    size_t arrsize = n * ceil(log2(n * 1.0) + 10); 
+    int arrsize = n * ceil(log2(n * 1.0) + 10); 
     bool* arr = (bool*)calloc(arrsize, sizeof(bool));
     memset(arr, true, arrsize * sizeof(bool));
     int iter  = 0;
@@ -123,7 +122,7 @@ int gcd (int n1, int n2) {
     if (n1 == 0) {
         return n2;
     }
-    return gcd(n2%n1, n1);
+    return gcd(n2 % n1, n1);
 }
 
 long long int combination (int n, int m) {
