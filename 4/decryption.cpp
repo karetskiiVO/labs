@@ -32,5 +32,5 @@ void decryption(int N,
         (val + j)->currency_name, (val + j)->leter_code, (val + j)->currency_code, 
          total_balance->currency_start[j], total_balance->currency_cipher[j]);
     }
-
+    
 }
